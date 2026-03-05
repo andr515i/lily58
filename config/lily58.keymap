@@ -1,5 +1,6 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
@@ -57,11 +58,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3     &bt BT_SEL 4                    &trans     &trans     &trans     &trans    &trans    &trans
-&kp F1      &kp F2            &mkp RCLK          &mmv MOVE_UP       &mkp LCLK        &kp F6                          &kp F7     &kp F8     &kp F9     &kp F10   &kp F11   &kp F12
-&kp GRAVE   &kp EXCL          &mmv MOVE_LEFT     &mmv MOVE_DOWN     &mmv MOVE_RIGHT  &kp PRCNT                       &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp TILDE
-&trans      &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans           &trans        &trans    &trans  &trans     &kp MINUS  &kp PLUS   &kp LBRC  &kp RBRC  &kp PIPE
-                                                 &trans             &trans           &trans        &trans    &trans  &trans     &trans     &trans
+&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4                    &trans     &trans     &trans     &trans         &trans            &trans
+&kp F1      &kp F2            &mkp RCLK          &mmv MOVE_UP    &mkp LCLK        &kp F6                          &kp F7     &kp F8     &kp F9     &kp F10        &kp F11           &kp F12
+&kp GRAVE   &kp EXCL          &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp PRCNT                       &kp CARET  &kp AMPS   &kp ASTRK  &kp LESS_THAN  &kp GREATER_THAN  &kp TILDE
+&trans      &ext_power EP_ON  &ext_power EP_OFF  &msc SCRL_UP    &msc SCRL_DOWN   &trans        &trans    &trans  &trans     &kp MINUS  &kp PLUS   &kp LBRC       &kp RBRC          &kp PIPE
+                                                 &trans          &trans           &trans        &trans    &trans  &trans     &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -79,7 +80,7 @@
 &kp ESCAPE      &trans          &trans          &trans           &trans  &trans                    &trans       &trans          &trans        &trans          &trans        &trans
 &kp TAB         &mkp RCLK       &mmv MOVE_UP    &mkp MB1         &trans  &trans                    &kp HOME     &kp HOME        &kp END       &kp END         &trans        &trans
 &kp LEFT_SHIFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans                    &kp LEFT     &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT       &trans        &kp NON_US_BACKSLASH
-&kp LCTRL       &trans          &trans          &trans           &trans  &trans  &trans    &trans  &kp KP_PLUS  &kp MINUS       &kp EQUAL     &msc SCRL_DOWN  &msc SCRL_UP  &kp BSLH
+&kp LCTRL       &trans          &msc SCRL_UP    &msc SCRL_DOWN   &trans  &trans  &trans    &trans  &kp KP_PLUS  &kp MINUS       &kp EQUAL     &msc SCRL_DOWN  &msc SCRL_UP  &kp BSLH
                                                 &trans           &trans  &trans  &trans    &trans  &trans       &tog 1          &trans
             >;
 
