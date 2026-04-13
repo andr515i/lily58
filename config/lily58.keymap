@@ -8,6 +8,15 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    macros {
+        delete_line: delete_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END) &kp DELETE>;
+            label = "DELETE_LINE";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -58,7 +67,7 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&kp ESCAPE      &trans          &trans          &trans           &trans  &trans                    &trans      &trans          &trans        &trans          &trans        &trans
+&kp ESCAPE      &delete_line    &trans          &trans           &trans  &trans                    &trans      &trans          &trans        &trans          &trans        &trans
 &kp TAB         &mkp RCLK       &mmv MOVE_UP    &mkp MB1         &trans  &trans                    &kp HOME    &kp HOME        &kp END       &kp END         &trans        &trans
 &kp LEFT_SHIFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans                    &kp LEFT    &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT       &trans        &kp NON_US_BACKSLASH
 &kp LCTRL       &trans          &msc SCRL_UP    &msc SCRL_DOWN   &trans  &trans  &trans    &trans  &kp NUBS    &kp MINUS       &kp EQUAL     &msc SCRL_DOWN  &msc SCRL_UP  &kp BSLH
